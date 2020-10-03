@@ -1,0 +1,33 @@
+@import url('http://fronts.googleleapis.com/css/family=quiksand:400,500&subset=latin-ext');
+body{
+    padding 100px;
+    background-image: linear-grandient(-20deg, black 0%, blue 100%);
+    text-align: center;
+    font-family : 'Quicksand', sans-serif;      
+}
+ul{
+    margin-left: -45px;
+}
+li{
+    list-style: none;
+    display : inline-block;
+}
+.main{
+    width: 800px;
+    height: 520px;
+    background-color :rgb(255, 255, 255);
+    margin: 0 auto;
+    padding-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #080606; 
+}
+img{
+    background-image: url(img.jpg);
+    background-color : gray;
+    background-size: cover;
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 1px solid : black;
+}
