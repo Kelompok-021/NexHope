@@ -20,7 +20,7 @@ body{
     width: 150px;
     height: 100%;
     background: #4b4276;
-    padding: 20px 0px;
+    padding: 20px 20px;
     position: fixed;
 }
 
@@ -71,8 +71,7 @@ body{
 
 .wrap .main{
     margin-left: 200px;
-    margin-top: 20px;
-    
+    margin-top: 20px; 
 }
 
 .wrap .main .post{
@@ -122,4 +121,61 @@ body{
     margin: 2px 2px;
     cursor: pointer;
     border-radius: 3px;
+}
+
+.wrap .home{
+    margin-left: 200px;
+    margin-top: 20px;
+    position: static;
+}
+
+.wrap .home .kolum{
+    display: flex;
+    border: 10px solid #0040ff;
+    width: 850px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #1a53ff;
+}
+
+.wrap .home .kolum .kategori{
+    width: 800px;
+    height: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+}
+
+.wrap .home .kolum a{
+    width: 350px;
+    height: 100px;
+}
+
+
+.wrap .home .kolum .kategori header{
+    display: flex;
+    text-decoration: none;
+}
+
+.wrap .home .kolum .kategori .deskripsi{
+    text-align: center;
+    padding-top: 30px;
+    width: 200px;
+    height: 100px;
+    background-color: #999999;
+    text-decoration: none;
+    color: black;
+}
+
+.wrap .home .kolum .kategori .picture{
+    background-color: #a6a6a6;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    padding: 3px;
+}
+
+.wrap .home .kolum .kategori .picture img{
+    width: 125px;
+    height: 90px;
 }
