@@ -138,12 +138,20 @@ body{
     background-color: #1a53ff;
 }
 
-.wrap .home .kolum .kategori{
+.wrap .home .kolum .row{
+    display: flex;
+    width: 450px;
+    height: 100px;
+    flex-direction: row;
+   
+}
+
+.wrap .home .kolum .row .kategori{
     width: 800px;
     height: 100px;
     margin-top: 20px;
     margin-left: 20px;
-    display: flex;
+    display: inline;
 }
 
 .wrap .home .kolum a{
@@ -151,13 +159,13 @@ body{
     height: 100px;
 }
 
-
-.wrap .home .kolum .kategori header{
+.wrap .home .kolum .row .kategori .box{
     display: flex;
     text-decoration: none;
+    
 }
 
-.wrap .home .kolum .kategori .deskripsi{
+.wrap .home .kolum .row .kategori .box .deskripsi{
     text-align: center;
     padding-top: 30px;
     width: 200px;
@@ -167,7 +175,7 @@ body{
     color: black;
 }
 
-.wrap .home .kolum .kategori .picture{
+.wrap .home .kolum .row .kategori .box .picture{
     background-color: #a6a6a6;
     width: 150px;
     height: 100px;
@@ -175,7 +183,7 @@ body{
     padding: 3px;
 }
 
-.wrap .home .kolum .kategori .picture img{
+.wrap .home .kolum .row .kategori .box .picture img{
     width: 125px;
     height: 90px;
 }
