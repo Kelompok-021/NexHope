@@ -1,3 +1,4 @@
 # NexHope
 
-[Preview](https://nexhope.herokuapp.com/)
+## Click this link to preview
+[NexHope](https://nexhope.herokuapp.com/)
