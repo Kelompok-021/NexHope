@@ -1,0 +1,55 @@
+@import url('http://fronts.googleleapis.com/css/family=quiksand:400,500&subset=latin-ext');
+*{
+    padding: 100px;
+    background-image: linear-grandient(-20deg, black 0%, blue 100%);
+    text-align: center;
+    font-family : 'Josefin Sans', sans-serif;
+    text-decoration: none;  
+}
+ul{
+    margin-left: -45px;
+}
+.main .container ul li{
+    list-style: none;
+    display : block;
+}
+.main{
+    width: 800px;
+    height: 520px;
+    background-color : #4b4276;
+    margin: 0 auto;
+    padding-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #080606; 
+}
+.main .img{
+    background-image: url(img.jpg);
+    background-color : gray;
+    background-size: cover;
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border: 1px solid, black;
+}
+
+.main .container{
+    width: 400px;
+    height: 200px;
+    background-color :rgb(255, 255, 255);
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 1px solid #080606; 
+}
+
+.main .button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color:white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+}
