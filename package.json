@@ -1,0 +1,19 @@
+{
+  "name": "nexhope",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kelompok-021/NexHope.git"
+  },
+  "author": "Satssuki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kelompok-021/NexHope/issues"
+  },
+  "homepage": "https://github.com/Kelompok-021/NexHope#readme"
+}
