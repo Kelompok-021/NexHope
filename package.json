@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/serve/bin/serve.js -l $PORT"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Kelompok-021/NexHope/issues"
   },
-  "homepage": "https://github.com/Kelompok-021/NexHope#readme"
+  "homepage": "https://github.com/Kelompok-021/NexHope#readme",
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
 }
