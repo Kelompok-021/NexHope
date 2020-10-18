@@ -11,20 +11,23 @@
 	<div class="kotak_login">
 		<p class="tulisan_login">Silahkan login</p>
  
-		<form>
+		<div>
 			<label>Username</label>
 			<input type="text" name="username" class="form_login" autocomplete="off" placeholder="Username atau email .." value="">
  
 			<label>Password</label>
 			<input type="password" name="password" class="form_login" placeholder="Password .."  value="">
  
-			<input type="submit" class="tombol_login" value="LOGIN">
- 
-			
-		</form>
-		
+			<input type="submit" class="tombol_login" value="LOGIN" onclick="ToLogin()">
+		</div>
+
 	</div>
  
- 
 </body>
+
+<script>
+	function ToLogin() {
+		window.location = "/activity";
+	}
+</script>
 </html>
