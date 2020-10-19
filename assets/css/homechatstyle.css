@@ -1,0 +1,176 @@
+header {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    background-color: rgb(20, 0, 39);
+}
+
+nav img {
+    width: 100%;
+    display: block;
+}
+
+nav a:hover {
+    color: red;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+
+main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+}
+
+button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 50px;
+    border: 1px auto black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+button a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+button a:hover {
+    color: red;
+}
+
+
+.box {
+    width: 500px;
+}
+
+p {
+    position: fixed;
+    top: 7%;
+    left: 22%;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+.rating {
+    position: fixed;
+    top: 15%;
+    left: 22%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #f00, #ff0, #0f0);
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display: block;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    background: #ffffff;
+    color: black;
+    font-size: 20px;
+    border-right: 1px solid black;
+
+}
+
+.rating input[type="radio"]:hover~label,
+.rating input[type="radio"]:checked~label {
+    background: transparent;
+}
+
+post img {
+    position: fixed;
+    top: 25%;
+    left: 22%;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+h1 {
+    left: 20%;
+    top: 45%;
+    padding: 10px;
+    color: black;
+    font-size: 24px;
+}
+
+.comment-box {
+    position: absolute;
+    top: 45%;
+    left: 22%;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.Comment-bar {
+    position: fixed;
+    top: 65%;
+    left: 20%;
+    width: 50%;
+    height: 20%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
