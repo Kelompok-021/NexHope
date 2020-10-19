@@ -1,11 +1,18 @@
 @import url('http://fronts.googleleapis.com/css/family=quiksand:400,500&subset=latin-ext');
 *{
-    padding: 100px;
+    
     background-image: linear-grandient(-20deg, black 0%, blue 100%);
     text-align: center;
     font-family : 'Josefin Sans', sans-serif;
     text-decoration: none;  
 }
+
+body{
+    background-image: linear-gradient(white,rgb(92, 20, 163));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 ul{
     margin-left: -45px;
 }
@@ -13,6 +20,7 @@ ul{
     list-style: none;
     display : block;
 }
+
 .main{
     width: 800px;
     height: 520px;

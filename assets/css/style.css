@@ -8,20 +8,25 @@
 }
 
 body{
-    background-color: #f3f5f9;
+    background-color: #0055ff;
+    background-image: linear-gradient(white,rgb(92, 20, 163));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .wrap{
     display: flex;
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .wrap .sidenav{
-    width: 150px;
+    width: 200px;
     height: 100%;
     background: #4b4276;
-    padding: 20px 20px;
-    position: fixed;
+    padding: 20px 0px;
+    position: relative;
 }
 
 .wrap .sidenav h4{
@@ -32,7 +37,7 @@ body{
 }
 
 .wrap .sidenav ul li{
-    padding: 15px;
+    padding: 20px;
     border-bottom: 1px solid #bdb8d7;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-top: 1px solid(255,255,255,0.05);
@@ -50,38 +55,42 @@ body{
 }
 
 .wrap .sidenav .logout{
-    position: absolute;
+    position: relative;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
+    display: block;
 }
 
 .wrap .sidenav .logout a{
-    display: block;
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 50px;
     background: white;
     line-height: 45px;
     text-align: center;
     margin:0 5;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-radius: 5px;
+    display: block;
+    
 }
 
 .wrap .main{
-    margin-left: 200px;
-    margin-top: 20px; 
+    margin-left: 30px;
+    margin-top: 20px;
+    position: relative;
 }
 
 .wrap .main .post{
     background-color: gainsboro;
-    width: 300px;
-    height:300px;
+    width: 400px;
+    height:400px;
+    position: relative;
+    margin-bottom: 30px;
+    margin-left: 80px;
 }
 
 .wrap .main .post header{
-    width: 300px;
+    width: 100%;
     height: 65px;
     background: #cccccc;
     display: flex;
@@ -106,7 +115,7 @@ body{
 
 .wrap .main .post .lnd{
     width: 50px;
-    height: 235px;
+    height: 335px;
     background-color: currentColor;
     padding-left: 5px;
     padding-top: 5px;
@@ -124,9 +133,9 @@ body{
 }
 
 .wrap .home{
-    margin-left: 200px;
+    margin-left: 30px;
     margin-top: 20px;
-    position: static;
+    position: relative;
 }
 
 .wrap .home .kolum{
