@@ -8,9 +8,10 @@ h1{
 
 .kotak_login{
 	width: 350px;
-	background: white;
+	background:#4b4276;
 	margin: 80px auto;
 	padding: 30px 20px;
+	border-radius: 20px;
 }
 
 label{
@@ -39,9 +40,12 @@ label{
 	text-decoration: none;
 	font-size: 10pt;
 }
+
 body{
 	font-family: choco cooky;
 	background: grey;
+	background-image: url(/assets/img/Loginback.png);
+	
 }
 .tulisan_login{
 	text-align: center;

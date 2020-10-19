@@ -9,9 +9,10 @@
 
 body{
     background-color: #0055ff;
-    background-image: linear-gradient(white,rgb(92, 20, 163));
+    background-image: url(/assets/img/Blusky.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 .wrap{
@@ -128,6 +129,13 @@ body{
     margin: 2px 2px;
     cursor: pointer;
     border-radius: 3px;
+}
+
+.wrap .main .post .image img{
+    width: 250px;
+    height: 250px;
+    margin-left: 100px;
+    margin-top: -300px;
 }
 
 .wrap .home{

@@ -8,9 +8,10 @@
 }
 
 body{
-    background-image: linear-gradient(white,rgb(92, 20, 163));
+    background-image: url(/assets/img/Nightsky.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 ul{
