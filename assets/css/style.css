@@ -27,14 +27,33 @@ body{
     height: 100%;
     background: #4b4276;
     padding: 20px 0px;
-    position: relative;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
+
+.wrap .sidenav .closebtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
 
 .wrap .sidenav h4{
     color: #fff;
     text-transform: uppercase;
-    text-align: center;;
-    margin-bottom: 30px;
+    text-align: center;
+    margin-left: 15px;
+    position: absolute;
+}
+
+.wrap .sidenav ul{
+    margin-top: 40px;
 }
 
 .wrap .sidenav ul li{
@@ -42,6 +61,8 @@ body{
     border-bottom: 1px solid #bdb8d7;
     border-bottom: 1px solid rgba(0,0,0,0.05);
     border-top: 1px solid(255,255,255,0.05);
+    
+    
 }
 
 .wrap .sidenav ul li:hover{
@@ -53,6 +74,7 @@ body{
     display: block;
     text-decoration: none;
     font-size: 18;
+    position: static;
 }
 
 .wrap .sidenav .logout{
@@ -139,9 +161,14 @@ body{
 }
 
 .wrap .home{
-    margin-left: 30px;
+    margin-left: 300px;
     margin-top: 20px;
-    position: relative;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 .wrap .home .kolum{

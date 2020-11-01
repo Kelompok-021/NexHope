@@ -45,8 +45,14 @@ body{
 	font-family: choco cooky;
 	background: grey;
 	background-image: url(/assets/img/Loginback.png);
-	
+	background-size: auto;
 }
+
+body::after{
+	display: none;
+	content: url(/assets/img/Loginback.png)
+}
+
 .tulisan_login{
 	text-align: center;
 	
