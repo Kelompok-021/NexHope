@@ -101,28 +101,47 @@ body{
 }
 
 .wrap .main{
-    margin: 0 auto;
     position: relative;
+    overflow-y: scroll;
+    margin-left: 300px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
 }
 
-.wrap .main .post{
-    background-color: gainsboro;
-    width: 400px;
-    height:400px;
-    position: relative;
+.wrap .main::-webkit-scrollbar {
+    display: none;
+}
+
+.wrap .main .postncom{
+    display: flex;
+    width: 100%;
+    height: 500px;
+    
+}
+
+.wrap .main .postncom .comment{
+    width: 500px;
+    height: 400px;
+    background: gainsboro;
     margin: 30px;
 }
 
-.wrap .main .post header{
-    width: 100%;
-    height: 65px;
-    background: #cccccc;
-    display: flex;
-    padding-left: 8px;
-    padding-top: 8px;
+.wrap .main .postncom .comment .display{
+    width: 480px;
+    height: 250px;
+    background: #4b4276;
+    margin: 10px;
+    overflow: scroll;
 }
 
-.wrap .main .post .propic{
+.wrap .main .postncom .comment .display .usercom{
+    display: flex;
+    margin:5px;
+}
+
+.wrap .main .postncom .comment .display .usercom .propic{
     background: grey;
     width: 50px;
     height:50px;
@@ -130,22 +149,67 @@ body{
     border: 3px solid;
     padding-left: 2px;
     text-align: left;
+    margin: 1px;
 }
 
-.wrap .main .post .message{
+.wrap .main .postncom .comment .display .usercom .thecom{
+    background: #fff;
+}
+
+.wrap .main .postncom .comment .textarea{
+    width: 480px;
+    height:80px;
+    margin:10px
+}
+
+.wrap .main .postncom .post{
+    background-color: gainsboro;
+    width: 400px;
+    height:400px;
+    position: relative;
+    margin: 30px;
+}
+
+.wrap .main .postncom .post header{
+    width: 100%;
+    height: 60px;
+    background: #cccccc;
+    display: flex;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.wrap .main .postncom .post .propic{
+    background: grey;
+    width: 50px;
+    height:50px;
+    border-radius: 100px;
+    border: 3px solid;
+    padding-left: 2px;
+    text-align: left;
+    margin: 1px;
+}
+
+.wrap .main .postncom .post .message{
     text-align: left;
     padding-top: 10px;
 }
 
-.wrap .main .post .lnd{
+.wrap .main .postncom .post .mainpost{
+    display: flex;
+    width: 100%;
+    height: 85%;
+}
+
+.wrap .main .postncom .post .mainpost .lnd{
     width: 50px;
-    height: 335px;
+    height: 100%;
     background-color: currentColor;
     padding-left: 5px;
     padding-top: 5px;
 }
 
-.wrap .main .post .lnd .button{
+.wrap .main .postncom .post .mainpost .lnd .button{
     border: none;
     padding: 10px 10px;
     text-align: center;
@@ -156,11 +220,15 @@ body{
     border-radius: 3px;
 }
 
-.wrap .main .post .image img{
-    width: 250px;
-    height: 250px;
-    margin-left: 100px;
-    margin-top: -300px;
+.wrap .main .postncom .post .mainpost .image{
+    width: 85%;
+    height: 100%;
+}
+
+.wrap .main .postncom .post .mainpost .image img{
+    width: 300px;
+    height: 300px;
+    margin:10px;   
 }
 
 .wrap .home{
@@ -172,6 +240,10 @@ body{
     left: 0;
     overflow-x: hidden;
     transition: 0.5s;
+}
+
+.wrap .home::-webkit-scrollbar {
+    display: none;
 }
 
 .wrap .home .kolum{
@@ -233,13 +305,6 @@ body{
     height: 90px;
 }
 
-main {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-}
 
 button {
     position: fixed;
@@ -314,6 +379,20 @@ p {
 .rating input[type="radio"]:hover~label,
 .rating input[type="radio"]:checked~label {
     background: transparent;
+}
+
+post img {
+    position: fixed;
+    top: 25%;
+    left: 22%;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    box-sizing: border-box;
 }
 
 h1 {
