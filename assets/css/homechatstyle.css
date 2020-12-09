@@ -305,7 +305,7 @@ body{
     height: 90px;
 
 button {
-    position: relative;
+    position: fixed;
     top: 20px;
     right: 20px;
     width: 100px;
@@ -334,7 +334,7 @@ button a:hover {
 }
 
 p {
-    position: relative;
+    position: fixed;
     top: 7%;
     left: 22%;
     margin: 0;
@@ -343,7 +343,7 @@ p {
 }
 
 .rating {
-    position: relative;
+    position: fixed;
     top: 15%;
     left: 22%;
     display: flex;
@@ -402,7 +402,7 @@ h1 {
 }
 
 .comment-box {
-    position: relative;
+    position: fixed;
     top: 45%;
     left: 22%;
     padding-bottom: 20px;
@@ -410,7 +410,7 @@ h1 {
 }
 
 .Comment-bar {
-    position: relative;
+    position: fixed;
     top: 65%;
     left: 20%;
     width: 50%;
