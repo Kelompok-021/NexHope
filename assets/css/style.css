@@ -134,6 +134,7 @@ body{
     background: #4b4276;
     margin: 10px;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .wrap .main .postncom .comment .display .usercom{
@@ -152,8 +153,25 @@ body{
     margin: 1px;
 }
 
+
 .wrap .main .postncom .comment .display .usercom .thecom{
-    background: #fff;
+    width: 400px;
+    height:auto;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.wrap .main .postncom .comment .display .usercom .thecom .usernm{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrap .main .postncom .comment .display .usercom .thecom .usercm{
+    width: 375px;
+    height:auto;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: #fff;
 }
 
 .wrap .main .postncom .comment .textarea{
@@ -209,6 +227,17 @@ body{
     padding-top: 5px;
 }
 
+.wrap .main .postncom .post .mainpost .lnd h4{
+    color: #fff;
+    padding: 8px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
 .wrap .main .postncom .post .mainpost .lnd .button{
     border: none;
     padding: 10px 10px;
@@ -238,7 +267,8 @@ body{
     z-index: 1;
     top: 0;
     left: 0;
-    overflow-x: hidden;
+    overflow-x: scroll;
+    overflow-y: scroll;
     transition: 0.5s;
 }
 
@@ -246,43 +276,39 @@ body{
     display: none;
 }
 
-.wrap .home .kolum{
+.wrap .home .row{
     display: flex;
-    border: 10px solid #0040ff;
-    width: 850px;
-    height: 500px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 800px;
+    height: auto;
     border-radius: 10px;
     background-color: #1a53ff;
+    
 }
 
-.wrap .home .kolum .row{
-    display: flex;
-    width: 450px;
-    height: 100px;
-    flex-direction: row;
-   
-}
-
-.wrap .home .kolum .row .kategori{
-    width: 800px;
-    height: 100px;
-    margin-top: 20px;
+.wrap .home .row .kategori{
+    width: 350px;
+    height: 150px;
     margin-left: 20px;
-    display: inline;
+    margin-top: 20px;
+    display: block;
+    
 }
 
-.wrap .home .kolum a{
+.wrap .home .row a{
     width: 350px;
     height: 100px;
 }
 
-.wrap .home .kolum .row .kategori .box{
+.wrap .home .row .kategori .box{
     display: flex;
     text-decoration: none;
-    
+    width: 400px;
+    height: 300px;
 }
 
-.wrap .home .kolum .row .kategori .box .deskripsi{
+.wrap .home .row .kategori .box .deskripsi{
     text-align: center;
     padding-top: 30px;
     width: 200px;
@@ -290,17 +316,21 @@ body{
     background-color: #999999;
     text-decoration: none;
     color: black;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 40px;
 }
 
-.wrap .home .kolum .row .kategori .box .picture{
+.wrap .home .row .kategori .box .picture{
     background-color: #a6a6a6;
     width: 150px;
     height: 100px;
     text-align: center;
     padding: 3px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: ;
 }
 
-.wrap .home .kolum .row .kategori .box .picture img{
+.wrap .home .row .kategori .box .picture img{
     width: 125px;
     height: 90px;
 }
