@@ -137,12 +137,17 @@ body{
     overflow-x: hidden;
 }
 
-.wrap .main .postncom .comment .display .usercom{
+.wrap .main .postncom .comment .display .opcom{
     display: flex;
     margin:5px;
 }
 
-.wrap .main .postncom .comment .display .usercom .propic{
+.wrap .main .postncom .comment .display .uscom{
+    display: flex;
+    margin:5px;
+}
+
+.wrap .main .postncom .comment .display .opcom .propic{
     background: grey;
     width: 50px;
     height:50px;
@@ -150,11 +155,24 @@ body{
     border: 3px solid;
     padding-left: 2px;
     text-align: left;
-    margin: 1px;
+    
+    margin-top: 15px;
+}
+
+.wrap .main .postncom .comment .display .uscom .propic{
+    background: grey;
+    width: 50px;
+    height:50px;
+    border-radius: 100px;
+    border: 3px solid;
+    padding-left: 2px;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: right;
 }
 
 
-.wrap .main .postncom .comment .display .usercom .thecom{
+.wrap .main .postncom .comment .display .opcom .thecom{
     width: 400px;
     height:auto;
     margin-left: 10px;
@@ -162,11 +180,24 @@ body{
     padding-top: 5px;
 }
 
-.wrap .main .postncom .comment .display .usercom .thecom .usernm{
+.wrap .main .postncom .comment .display .opcom .thecom .usernm{
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.wrap .main .postncom .comment .display .usercom .thecom .usercm{
+.wrap .main .postncom .comment .display .opcom .thecom .usercm{
+    width: 375px;
+    height:auto;
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: #fff;
+}
+
+.wrap .main .postncom .comment .display .uscom .thecom .usernm{
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: right;
+}
+
+.wrap .main .postncom .comment .display .uscom .thecom .usercm{
     width: 375px;
     height:auto;
     padding-left: 5px;
