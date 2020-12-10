@@ -118,7 +118,8 @@ body{
     display: flex;
     width: 100%;
     height: 500px;
-    
+    border-radius: 10px;
+
 }
 
 .wrap .main .postncom .comment{
@@ -126,6 +127,7 @@ body{
     height: 400px;
     background: gainsboro;
     margin: 30px;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .comment .display{
@@ -135,11 +137,13 @@ body{
     margin: 10px;
     overflow: scroll;
     overflow-x: hidden;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .comment .display .opcom{
     display: flex;
     margin:5px;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .comment .display .uscom{
@@ -190,6 +194,7 @@ body{
     padding-left: 5px;
     padding-top: 5px;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .comment .display .uscom .thecom .usernm{
@@ -203,12 +208,13 @@ body{
     padding-left: 5px;
     padding-top: 5px;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .comment .textarea{
     width: 480px;
     height:80px;
-    margin:10px
+    margin:10px;
 }
 
 .wrap .main .postncom .post{
@@ -217,6 +223,7 @@ body{
     height:400px;
     position: relative;
     margin: 30px;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .post header{
@@ -226,6 +233,7 @@ body{
     display: flex;
     padding-left: 5px;
     padding-top: 5px;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .post .propic{
@@ -237,6 +245,7 @@ body{
     padding-left: 2px;
     text-align: left;
     margin: 1px;
+    border-radius: 10px;
 }
 
 .wrap .main .postncom .post .message{
@@ -313,8 +322,9 @@ body{
     padding-right: 20px;
     width: 800px;
     height: auto;
-    border-radius: 10px;
-    background-color: #1a53ff;
+    
+    background-color:  #4b4276;
+border-radius: 10px;
     
 }
 
@@ -330,6 +340,7 @@ body{
 .wrap .home .row a{
     width: 350px;
     height: 100px;
+    border-radius: 10px;
 }
 
 .wrap .home .row .kategori .box{
@@ -365,3 +376,32 @@ body{
     width: 125px;
     height: 90px;
 }
+
+.wrap .home .garistepi{
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 800px;
+    height: auto;
+    border-radius: 10px;
+    background-color:  #4b4276;
+}
+.garistepi{
+	width: 400px;
+	height: 300px;
+	background: #4b4276;
+	margin: 20px;
+	left: 0;
+	border-radius: 10px ;
+	}
+.garistepi .pos{
+    width: 200px;
+	height: 150px;
+	background: white;
+	margin: 20px;
+	left: 0;
+}
+	.posisi{
+	text-align: right;
+	margin: 50%;
+	}
