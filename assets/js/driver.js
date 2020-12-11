@@ -3,7 +3,9 @@
  * @param {string} location path url want to direct
  */
 function ToLocation(location) {
-    window.location = location;
+    if((window.location.pathname || "/") != location) {
+        window.location = location;
+    }
 }
 
 function setCookie(data) {
