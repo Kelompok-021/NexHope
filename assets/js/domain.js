@@ -45,7 +45,9 @@ async function GetAllCategory() {
     try {
         let { docs: categories } = await categoryRef.get();
         for (let c = 0; c < categories.length; c++) {
-            result.push(categories[c].data());
+            let data = categories[c].data();
+            data.id = categories[c].id;
+            result.push(data);
         }
     } catch(error) {}
     return result;
