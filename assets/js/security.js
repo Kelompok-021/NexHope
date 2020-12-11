@@ -5,7 +5,7 @@
  * @param {string} location which is aimed
  */
 function CookieChecker(location){
-    setTimeout(async () => {
+    setInterval(async () => {
         let cookie = GetCookies().userInfo;
         let user = await GetUserByUsername((cookie || {}).username || "");
         if(user) {
