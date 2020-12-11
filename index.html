@@ -3,31 +3,32 @@
 <head>
 	<title>NEXHOPE </title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/login.css">
+	<script src="/assets/js/firebase-app.js"></script>
+	<script src="/assets/js/firebase-firestore.js"></script>
+	<script src="/assets/js/firebase-analytic.js"></script>
+	<script src="/assets/js/firebase.js"></script>
 </head>
 <body>
 	<h1><b>NEXHOPE</b>  </h1>
  
 	<div class="kotak_login">
-		<p class="tulisan_login">Silahkan login</p>
+		<p class="tulisan_login" style="color: white;">Silahkan login, jika tidak memiliki akun akan otomatis terdaftar</p>
  
 		<div>
 			<label>Username</label>
-			<input type="text" name="username" class="form_login" autocomplete="off" placeholder="Username atau email .." value="">
+			<input type="text" id="username" name="username" class="form_login" autocomplete="off" placeholder="Username atau email ..">
  
 			<label>Password</label>
-			<input type="password" name="password" class="form_login" placeholder="Password .."  value="">
+			<input type="password" id="password" name="password" class="form_login" placeholder="Password ..">
  
-			<input type="submit" class="tombol_login" value="LOGIN" onclick="ToLogin()">
+			<input type="submit" class="tombol_login" value="LOGIN" onclick="SSO()">
+			<p style="color: white;" id="status"></p>
 		</div>
 
 	</div>
-
- 
+	<script src="/assets/js/driver.js"></script>
+	<script src="/assets/js/view.js"></script>
+	<script src="/assets/js/domain.js"></script>
+	<script src="/assets/js/usecase.js"></script>
 </body>
-
-<script>
-	function ToLogin() {
-		window.location = "/activity";
-	}
-</script>
 </html>
