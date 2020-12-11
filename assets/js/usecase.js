@@ -24,3 +24,14 @@ async function SSO() {
         SetParagraphText("status", `Error message: ${error}`)
     }
 }
+
+/**
+ * event when user visiting activity
+ * to put all category on list
+ */
+async function AppendCategories() {
+    let category = await GetAllCategory();
+    category.forEach((cat)=> {
+        AppendCategory(cat.name, cat.imageURL);
+    })
+}
