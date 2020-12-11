@@ -4,6 +4,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href ="/assets/css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="/assets/js/firebase-app.js"></script>
+        <script src="/assets/js/firebase-firestore.js"></script>
+        <script src="/assets/js/firebase-analytic.js"></script>
+        <script src="/assets/js/firebase.js"></script>
 </head>
 <body>
     <div class="Wrap">    
@@ -41,77 +45,16 @@
             <div class="title">
                 <h3>Category</h3>
             </div>
-            <div class="row">
-                    <div class="kategori">
-                        <a href="/activity/roomanime.html">
-                            <div class="box">
-                                <div class="deskripsi">
-                                    <h6>
-                                        Anime & Manga
-                                    </h6>
-                                </div>
-                                <div class="picture">
-                                    <img src="/assets/img/Animemanga.jpg">
-                                </div>    
-                            </div>
-                        </a>
-                    </div>
-                    <div class="kategori">
-                        <a href="/activity/roompicture.html">
-                        <div class="box">
-                            <div class="deskripsi">
-                                <h6>
-                                    Picture
-                                </h6>
-                            </div>
-                            <div class="picture">
-                                <img src="/assets/img/Art.jpg">
-                            </div>    
-                        </div>
-                        </a>
-                    </div>     
-                    <div class="kategori">
-                        <a href="/activity/room">
-                            <div class="box">
-                                <div class="deskripsi">
-                                    <h6>
-                                        Meme
-                                    </h6>
-                                </div>
-                                <div class="picture">
-                                    <img src="/assets/img/Meme2.jpg">
-                                </div>    
-                            </div>
-                        </a>
-                    </div>
-                    <div class="kategori">
-                        <a href="/activity/roomart.html">
-                        <div class="box">
-                            <div class="deskripsi">
-                                <h6>
-                                    Art
-                                </h6>
-                            </div>
-                            <div class="picture">
-                                <img src="/assets/img/Loginback.png">
-                            </div>    
-                        </div>
-                        </a>
-                    </div>
-                    
+            <div class="row" id="categories">
             </div>         
         </div>
     </div>
+    <script src="/assets/js/driver.js"></script>
+	<script src="/assets/js/view.js"></script>
+	<script src="/assets/js/domain.js"></script>
+	<script src="/assets/js/usecase.js"></script>
 </body>
 <script>
-function openNav() {
-  document.getElementById("msn").style.width = "200px";
-  document.getElementById("content").style.marginLeft = "300px";
-}
-
-function closeNav() {
-  document.getElementById("msn").style.width = "0";
-  document.getElementById("content").style.marginLeft = "100px";
-}
+    AppendCategories();
 </script>
 <html>
