@@ -401,7 +401,24 @@ border-radius: 10px;
 	margin: 20px;
 	left: 0;
 }
-	.posisi{
-	text-align: right;
-	margin: 50%;
-	}
+
+.garistepi1{
+    width: 400px;
+	height: 300px;
+	background: #4b4276;
+	margin: 20px;
+	left: 0;
+	border-radius: 10px ;
+}
+
+	.garistepi1 .posisi{
+        background-image: url(img.jpg);
+        background-color : gray;
+        background-size: cover;
+    
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        border: 1px solid, black;
+    }
+    
