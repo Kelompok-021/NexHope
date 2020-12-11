@@ -9,7 +9,11 @@ const categoryRef = db.collection("categories");
 async function GetUserByUsername(username) {
     let { docs: users } = await userRef.where("username", "==", username).get();
     if (users.length > 0) {
-        return users[0].data()
+        let user = users[0];
+        return {
+            id: user.id,
+            ...(user.data()),
+        }
     }
     return null
 }
