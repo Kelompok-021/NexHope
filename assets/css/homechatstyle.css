@@ -1,13 +1,13 @@
 {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-body{
+body {
     background-color: #0055ff;
     background-image: url(/assets/img/Blusky.jpg);
     background-repeat: no-repeat;
@@ -15,14 +15,14 @@ body{
     background-size: 100% 100%;
 }
 
-.wrap{
+.wrap {
     display: flex;
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.wrap .sidenav{
+.wrap .sidenav {
     width: 200px;
     height: 100%;
     background: #4b4276;
@@ -35,7 +35,7 @@ body{
     transition: 0.5s;
 }
 
-.wrap .sidenav .closebtn{
+.wrap .sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
@@ -44,7 +44,7 @@ body{
 }
 
 
-.wrap .sidenav h4{
+.wrap .sidenav h4 {
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -52,35 +52,35 @@ body{
     position: absolute;
 }
 
-.wrap .sidenav ul{
+.wrap .sidenav ul {
     margin-top: 40px;
 }
 
-.wrap .sidenav ul li{
+.wrap .sidenav ul li {
     padding: 20px;
     border-bottom: 1px solid #bdb8d7;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    border-top: 1px solid(255,255,255,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid(255, 255, 255, 0.05);
 }
 
-.wrap span{
+.wrap span {
     margin-top: 10px;
     margin-left: 20px;
 }
 
-.wrap .sidenav ul li:hover{
+.wrap .sidenav ul li:hover {
     background: #bdb8d7;
 }
 
-.wrap .sidenav ul li a{
-    color:white;
+.wrap .sidenav ul li a {
+    color: white;
     display: block;
     text-decoration: none;
     font-size: 18;
-    
+
 }
 
-.wrap .sidenav .logout{
+.wrap .sidenav .logout {
     position: relative;
     bottom: 10px;
     left: 50%;
@@ -88,19 +88,19 @@ body{
     display: block;
 }
 
-.wrap .sidenav .logout a{
+.wrap .sidenav .logout a {
     width: 100px;
     height: 50px;
     background: white;
     line-height: 45px;
     text-align: center;
-    margin:0 5;
+    margin: 0 5;
     border-radius: 5px;
     display: block;
-    
+
 }
 
-.wrap .main{
+.wrap .main {
     position: relative;
     overflow-y: scroll;
     margin-left: 300px;
@@ -114,21 +114,21 @@ body{
     display: none;
 }
 
-.wrap .main .postncom{
+.wrap .main .postncom {
     display: flex;
     width: 100%;
     height: 500px;
-    
+
 }
 
-.wrap .main .postncom .comment{
+.wrap .main .postncom .comment {
     width: 500px;
     height: 400px;
     background: gainsboro;
     margin: 30px;
 }
 
-.wrap .main .postncom .comment .display{
+.wrap .main .postncom .comment .display {
     width: 480px;
     height: 250px;
     background: #4b4276;
@@ -136,15 +136,15 @@ body{
     overflow: scroll;
 }
 
-.wrap .main .postncom .comment .display .usercom{
+.wrap .main .postncom .comment .display .usercom {
     display: flex;
-    margin:5px;
+    margin: 5px;
 }
 
-.wrap .main .postncom .comment .display .usercom .propic{
+.wrap .main .postncom .comment .display .usercom .propic {
     background: grey;
     width: 50px;
-    height:50px;
+    height: 50px;
     border-radius: 100px;
     border: 3px solid;
     padding-left: 2px;
@@ -152,25 +152,25 @@ body{
     margin: 1px;
 }
 
-.wrap .main .postncom .comment .display .usercom .thecom{
+.wrap .main .postncom .comment .display .usercom .thecom {
     background: #fff;
 }
 
-.wrap .main .postncom .comment .textarea{
+.wrap .main .postncom .comment .textarea {
     width: 480px;
-    height:80px;
-    margin:10px
+    height: 80px;
+    margin: 10px
 }
 
-.wrap .main .postncom .post{
+.wrap .main .postncom .post {
     background-color: gainsboro;
     width: 400px;
-    height:400px;
+    height: 400px;
     position: relative;
     margin: 30px;
 }
 
-.wrap .main .postncom .post header{
+.wrap .main .postncom .post header {
     width: 100%;
     height: 60px;
     background: #cccccc;
@@ -179,10 +179,10 @@ body{
     padding-top: 5px;
 }
 
-.wrap .main .postncom .post .propic{
+.wrap .main .postncom .post .propic {
     background: grey;
     width: 50px;
-    height:50px;
+    height: 50px;
     border-radius: 100px;
     border: 3px solid;
     padding-left: 2px;
@@ -190,18 +190,18 @@ body{
     margin: 1px;
 }
 
-.wrap .main .postncom .post .message{
+.wrap .main .postncom .post .message {
     text-align: left;
     padding-top: 10px;
 }
 
-.wrap .main .postncom .post .mainpost{
+.wrap .main .postncom .post .mainpost {
     display: flex;
     width: 100%;
     height: 85%;
 }
 
-.wrap .main .postncom .post .mainpost .lnd{
+.wrap .main .postncom .post .mainpost .lnd {
     width: 50px;
     height: 100%;
     background-color: currentColor;
@@ -209,7 +209,7 @@ body{
     padding-top: 5px;
 }
 
-.wrap .main .postncom .post .mainpost .lnd .button{
+.wrap .main .postncom .post .mainpost .lnd .button {
     border: none;
     padding: 10px 10px;
     text-align: center;
@@ -220,18 +220,18 @@ body{
     border-radius: 3px;
 }
 
-.wrap .main .postncom .post .mainpost .image{
+.wrap .main .postncom .post .mainpost .image {
     width: 85%;
     height: 100%;
 }
 
-.wrap .main .postncom .post .mainpost .image img{
+.wrap .main .postncom .post .mainpost .image img {
     width: 300px;
     height: 300px;
-    margin:10px;   
+    margin: 10px;
 }
 
-.wrap .home{
+.wrap .home {
     margin-left: 300px;
     margin-top: 20px;
     position: fixed;
@@ -246,7 +246,7 @@ body{
     display: none;
 }
 
-.wrap .home .kolum{
+.wrap .home .kolum {
     display: flex;
     border: 10px solid #0040ff;
     width: 850px;
@@ -255,15 +255,15 @@ body{
     background-color: #1a53ff;
 }
 
-.wrap .home .kolum .row{
+.wrap .home .kolum .row {
     display: flex;
     width: 450px;
     height: 100px;
     flex-direction: row;
-   
+
 }
 
-.wrap .home .kolum .row .kategori{
+.wrap .home .kolum .row .kategori {
     width: 800px;
     height: 100px;
     margin-top: 20px;
@@ -271,18 +271,18 @@ body{
     display: inline;
 }
 
-.wrap .home .kolum a{
+.wrap .home .kolum a {
     width: 350px;
     height: 100px;
 }
 
-.wrap .home .kolum .row .kategori .box{
+.wrap .home .kolum .row .kategori .box {
     display: flex;
     text-decoration: none;
-    
+
 }
 
-.wrap .home .kolum .row .kategori .box .deskripsi{
+.wrap .home .kolum .row .kategori .box .deskripsi {
     text-align: center;
     padding-top: 30px;
     width: 200px;
@@ -292,7 +292,7 @@ body{
     color: black;
 }
 
-.wrap .home .kolum .row .kategori .box .picture{
+.wrap .home .kolum .row .kategori .box .picture {
     background-color: #a6a6a6;
     width: 150px;
     height: 100px;
@@ -300,11 +300,14 @@ body{
     padding: 3px;
 }
 
-.wrap .home .kolum .row .kategori .box .picture img{
+.wrap .home .kolum .row .kategori .box .picture img {
     width: 125px;
     height: 90px;
+}
 
-button {
+
+
+.button {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -381,10 +384,10 @@ p {
 
 post img {
     position: fixed;
-    top: 50px;
-    left: 50px;
-    width: 50px;
-    height: 50px;
+    top: 25%;
+    left: 22%;
+    width: 20%;
+    height: 20%;
     display: flex;
     flex-direction: row-reverse;
     margin-top: 10px;
@@ -402,7 +405,7 @@ h1 {
 }
 
 .comment-box {
-    position: fixed;
+    position: absolute;
     top: 45%;
     left: 22%;
     padding-bottom: 20px;
