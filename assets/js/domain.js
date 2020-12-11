@@ -1,4 +1,5 @@
 const userRef = db.collection("users");
+const categoryRef = db.collection("categories");
 
 /**
  * retrieve user info from firebase collection
@@ -28,4 +29,20 @@ async function AddNewUser(username, password) {
     } catch (error) {
         return error
     }
+}
+
+/**
+ * get all category from collection
+ * return zero length array if not found
+ * @returns {Array}
+ */
+async function GetAllCategory() {
+    let result = [];
+    try {
+        let { docs: categories } = await categoryRef.get();
+        for (let c = 0; c < categories.length; c++) {
+            result.push(categories[c].data());
+        }
+    } catch(error) {}
+    return result;
 }
