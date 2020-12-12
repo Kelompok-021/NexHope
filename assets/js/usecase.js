@@ -38,3 +38,16 @@ async function AppendCategories() {
         AppendCategory(cat.name, cat.imageURL);
     })
 }
+
+/**
+ * set user profile image
+ */
+async function SetUserImage() {
+    let user = GetCookies().userInfo;
+    if(user.username) {
+        let imageURL = await UploadImage("inputPost");
+        if(imageURL.data) {
+            await UpdateUserField(user.username, "profileImg", imageURL.data.thumb.url);
+        }
+    }
+}

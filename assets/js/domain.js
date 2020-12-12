@@ -36,6 +36,21 @@ async function AddNewUser(username, password) {
 }
 
 /**
+ * update partial user document
+ * @param {string} username of specified user
+ * @param {string} key of document user want to be updated
+ * @param {any} value of updated document
+ */
+async function UpdateUserField(username, key, value) {
+    let updatedField = {};
+    updatedField[key] = value;
+    let { docs: users } = await userRef.where("username", "==", username).get();
+    if (users.length > 0) {
+        await users[0].ref.update(updatedField);
+    }
+}
+
+/**
  * get all category from collection
  * return zero length array if not found
  * @returns {Array}
