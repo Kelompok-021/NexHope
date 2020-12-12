@@ -96,6 +96,7 @@ async function CreatePost() {
  * render all post to html
  */
 async function RenderAllPost() {
+    let { username } = GetCookies().userInfo;
     let category = GetCookies().categoryID;
     let posts = await GetAllPost(category);
     for (let p = 0; p < posts.length; p++) {
@@ -110,6 +111,13 @@ async function RenderAllPost() {
             post.imageURL,
             post.title
         )
+        await ListenFromComment(category, post.id, async function (doc) {
+            let userComment = await GetUserByUsername(doc.username);
+            if(doc.username == username) {
+                return AddSelfComment(post.id, user.username, doc.comment, userComment.profileImg);
+            }
+            AddOtherComment(post.id, user.username, doc.comment, userComment.profileImg);
+        });
     }
 }
 

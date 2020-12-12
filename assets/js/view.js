@@ -169,3 +169,51 @@ function AddPost(id, categoryID, creator, imageURL, title){
             </div>`;
     getElByID("content").innerHTML += post;
 }
+
+
+function AddOtherComment(id, username, content, imgURL) {
+    let comment = `
+    <div class="opcom">
+        <div class="propic">
+            <img width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${imgURL}"/>
+        </div>
+        <div class="thecom">
+            <div class="usernm">
+                <p style="color: white;">
+                    ${username}
+                </p>
+            </div>
+            <div class="usercm">
+                <p>
+                    ${content}
+                </p>
+            </div>
+        </div>
+    </div>`
+    getElByID(`display-${id}`).innerHTML += comment;
+}
+
+
+function AddSelfComment(id, username, content, imgURL) {
+    let comment = `
+    <div class="uscom">
+        <div class="thecom">
+            <div class="usernm">
+                <p style="color: white;">
+                    ${username}
+                </p>
+            </div>
+            <div class="usercm">
+                <p>
+                ${content}
+                </p>
+            </div>
+        </div>
+        <div class="propic">
+            <img width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${imgURL}"/>
+        </div>
+    </div>`
+    getElByID(`display-${id}`).innerHTML += comment;
+}
+
+
