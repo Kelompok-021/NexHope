@@ -137,3 +137,10 @@ async function Comments(categoryID, postID) {
     }
     SetTextInInput(`comment-${postID}`, "");
 }
+
+/**
+ * logout functions
+ */
+function LogOut() {
+    UpdateCookies("userInfo", {});
+}
