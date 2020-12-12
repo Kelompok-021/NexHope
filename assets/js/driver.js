@@ -23,10 +23,9 @@ function cookieToJSON() {
 function jsonToCookie(data) {
     let keys = Object.keys(data);
     let cookie = "";
-    keys.forEach((key) => {
-        cookie += `${key}=${data[key]}; `;
+    keys.forEach((key, i) => {
+        cookie += `${key}=${data[key]}${i == keys.length - 1 ? "": "; "}`;
     })
-    console.log(cookie);
     document.cookie = cookie;
 }
 
