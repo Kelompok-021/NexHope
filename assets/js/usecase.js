@@ -83,7 +83,7 @@ async function CreatePost() {
     let category = GetTextFromInput("category");
     if(category.length > 8) {
         let postImageURL = await UploadImage("inputPost");
-        let err = await InsertPost(category, user.id, title, postImageURL.data.display_url);
+        let err = await InsertPost(category, user.username, title, postImageURL.data.display_url);
         if(!!err) {
             return SetParagraphText("response", "thank you for post something");
         }

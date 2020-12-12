@@ -72,12 +72,12 @@ async function GetAllCategory() {
 /**
  * insert post by documents
  * @param {string} id of category to document want to be insert
- * @param {string} creatorID to identify who's the user post this
+ * @param {string} creatorUsername to identify who's the user post this
  * @param {string} title of post
  * @param {string} imageURL of post
  */
-async function InsertPost(id, creatorID, title, imageURL) {
-    let document = { title, creatorID, imageURL };
+async function InsertPost(id, creatorUsername, title, imageURL) {
+    let document = { title, creatorUsername, imageURL };
     try {
         await postRef.
             doc(id).
