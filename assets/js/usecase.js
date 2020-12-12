@@ -8,7 +8,7 @@ async function SSO() {
     let username = GetTextFromInput("username");
     let password = GetTextFromInput("password");
     try {
-        let user = await GetUserByUsername(username)
+        let user = await GetUserByUsername(username);
         if(user) {
             if(user.password == password) {
                 UpdateCookies("userInfo", user);
@@ -17,6 +17,9 @@ async function SSO() {
                 SetParagraphText("status", "Your password was wrong");
             }
             return null
+        }
+        if(username.length < 4 || password.length < 4){
+            return SetParagraphText("status", "Please input username, password more than 4 characters");
         }
         AddNewUser(username, password)
         SetParagraphText("status", "You are registered, please press login once more")
