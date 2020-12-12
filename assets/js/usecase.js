@@ -84,7 +84,8 @@ async function CreatePost() {
     if(category.length > 8) {
         let postImageURL = await UploadImage("inputPost");
         let err = await InsertPost(category, user.username, title, postImageURL.data.display_url);
-        if(!!err) {
+        if(!err) {
+            ToLocation("/activity")
             return SetParagraphText("response", "thank you for post something");
         }
     }
