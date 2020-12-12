@@ -101,7 +101,8 @@ async function RenderAllPost() {
         const post = posts[p];
         let user = await GetUserByUsername(post.creatorUsername);
         AddPost(
-            post.id, {
+            post.id, 
+            category, {
                 profileimg: user.profileImg,
                 username: user.username
             },
@@ -109,4 +110,21 @@ async function RenderAllPost() {
             post.title
         )
     }
+}
+
+/**
+ * function that add comment to specified post
+ * @param {string} categoryID
+ * @param {string} postID
+ */
+async function Comments(categoryID, postID) {
+    let user = GetCookies().userInfo;
+    let input = GetTextFromInput(`comment-${postID}`);
+    if(input.length > 0) {
+        let err = await AddComment(categoryID, postID, user.username, input);
+        if(!!err) {
+            alert("error message: "+err);
+        }
+    }
+    SetTextInInput(`comment-${postID}`, "");
 }

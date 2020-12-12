@@ -7,6 +7,15 @@ function GetTextFromInput(id) {
     return document.getElementById(id).value;
 }
 
+/**
+ * set input value into element
+ * @param {string} id
+ * @param {string} value
+ */
+function SetTextInInput(id, value) {
+    document.getElementById(id).value = value;
+}
+
 
 /**
  * shorthand function to get html element
@@ -107,11 +116,12 @@ function AppendCategoryOption(value, label) {
 /**
  * 
  * @param {string} id 
+ * @param {string} categoryID
  * @param {object} creator should contain username, profileimg field of creator
  * @param {string} imageURL 
  * @param {string} title
  */
-function AddPost(id, creator, imageURL, title){
+function AddPost(id, categoryID, creator, imageURL, title){
     let post = `<div class="postncom">
                 <div class="post">
                     <header>
@@ -151,7 +161,7 @@ function AddPost(id, creator, imageURL, title){
                         <label>Comment :</label>
                         <textarea id="comment-${id}" name="comment" rows="2" cols="50"></textarea>
                         <br>
-                        <input type="submit" value="Submit">
+                        <input type="button" value="post" onclick="Comments('${categoryID}', '${id}')">
                     </form>
                     
                     </div>
