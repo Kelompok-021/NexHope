@@ -88,3 +88,25 @@ async function InsertPost(id, creatorUsername, title, imageURL) {
         return error;
     }
 }
+
+/**
+ * fetch all post from db
+ * @param {string} id of category want to be fetched
+ * @returns {Array.<Object>}
+ */
+async function GetAllPost(id) {
+    let result = [];
+    try {
+        let {docs: post} = await postRef.
+            doc(id).
+            collection("post").get();
+        post.forEach((row)=>{
+
+            result.push({
+                ...row.data(),
+                id: row.id
+            });
+        })
+    } catch (error) {}
+    return result;
+}
