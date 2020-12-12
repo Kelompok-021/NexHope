@@ -133,7 +133,7 @@ async function RenderAllPost() {
         await ListenFromComment(category, post.id, async function (doc) {
             let userComment = await GetUserByUsername(doc.username);
             if(doc.username == username) {
-                return AddSelfComment(post.id, user.username, doc.comment, userComment.profileImg);
+                return AddSelfComment(post.id, doc.username, doc.comment, userComment.profileImg);
             }
             AddOtherComment(post.id, doc.username, doc.comment, userComment.profileImg);
         });
