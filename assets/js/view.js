@@ -28,16 +28,17 @@ function SetParagraphText(id, text) {
 
 /**
  * add one category in categories activity
+ * @param {string} id of category want to be visited
  * @param {string} name of category
  * @param {string} imageURL
  */
-function AppendCategory(name, imageURL){
+function AppendCategory(id, name, imageURL){
     let div = document.createElement("div");
     div.classList.add("kategori");
     {
 
         let link = document.createElement("a");
-        link.href = "/activity/roomanime.html";
+        link.href = "/activity/room";
 
         {
             let boxDiv = document.createElement("div");
@@ -66,6 +67,9 @@ function AppendCategory(name, imageURL){
                 boxDiv.appendChild(pictDiv);
             }
             link.appendChild(boxDiv);
+        }
+        link.onclick = function(){
+            UpdateCookies("categoryID", id);
         }
         div.appendChild(link);
     }

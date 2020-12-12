@@ -35,7 +35,7 @@ async function SSO() {
 async function AppendCategories() {
     let category = await GetAllCategory();
     category.forEach((cat)=> {
-        AppendCategory(cat.name, cat.imageURL);
+        AppendCategory(cat.id, cat.name, cat.imageURL);
     })
 }
 
