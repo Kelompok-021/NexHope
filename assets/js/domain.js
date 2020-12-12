@@ -110,3 +110,28 @@ async function GetAllPost(id) {
     } catch (error) {}
     return result;
 }
+
+/**
+ * add comment from specified post
+ * @param {string} id of category want to be fetched    
+ * @param {string} postID
+ * @param {string} username of user who's comment
+ * @param {string} comment
+ * @returns {Array.<Object>}
+ */
+async function AddComment(id, postID, username, comment) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("comments").
+            add({
+                username, comment,
+                created: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            return null;
+    } catch (error) {
+        return error;
+    }
+}
