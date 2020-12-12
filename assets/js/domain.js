@@ -1,5 +1,6 @@
 const userRef = db.collection("users");
 const categoryRef = db.collection("categories");
+const postRef = db.collection("posts");
 
 /**
  * retrieve user info from firebase collection
@@ -66,4 +67,24 @@ async function GetAllCategory() {
         }
     } catch(error) {}
     return result;
+}
+
+/**
+ * insert post by documents
+ * @param {string} id of category to document want to be insert
+ * @param {string} creatorID to identify who's the user post this
+ * @param {string} title of post
+ * @param {string} imageURL of post
+ */
+async function InsertPost(id, creatorID, title, imageURL) {
+    let document = { title, creatorID, imageURL };
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            add(document);
+        return null;
+    } catch (error) {
+        return error;
+    }
 }
