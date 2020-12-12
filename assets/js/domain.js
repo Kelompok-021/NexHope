@@ -135,3 +135,29 @@ async function AddComment(id, postID, username, comment) {
         return error;
     }
 }
+
+/**
+ * listen every new comment
+ * @param {string} id 
+ * @param {string} postID 
+ * @param {Function} callback 
+ */
+async function ListenFromComment(id, postID, callback) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("comments").
+            onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(({ type, doc: comment })=>{
+                    if(type === "added") {
+                        callback(comment.data());
+                    }
+                });
+            });
+            return null;
+    } catch (error) {
+        return error;
+    }
+}
