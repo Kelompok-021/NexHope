@@ -4,27 +4,40 @@
         <meta charset="UTF-8">
         <title> Profile Update</title>
         <link rel ="stylesheet" type= "text/css" href="/assets/css/profilev2.css">
+    <script src="/assets/js/firebase-app.js"></script>
+    <script src="/assets/js/firebase-firestore.js"></script>
+    <script src="/assets/js/firebase-analytic.js"></script>
+    <script src="/assets/js/firebase.js"></script>
     </head>
     <body style="text-align:center;"color="white">
         <div class ="main">
             <div class ="img">
-                <img src="#" alt="gambar.jpg" width="300px" height="142px">
+                <img src="#" width="300px" height="142px" id="previewImg">
             </div>
             <br>
             <div class="container">
                 <ul>
-                <li><a href ="#">change profile pic</a></li>
+                <li>
+                    <input type="file" placeholder="Change Profile Picture" id="inputPost" accept="image/*" onchange="PutImageSrc('previewImg', 'inputPost');">
+                </li>
                 <br>
-                <label for="username">Username:</label>
-                
-                <input type="text" id="username" name="username">
-                <li><a href ="#">change username</a></li>
+                Username:<p id="username"></p>
                 </ul>
             </div>
             <br>
-            <a href ="#" class="button">Save</a></li>
+            <button href ="" class="button" onclick="SetUserImage()">Save</button>
             <br>
-            <a href ="/activity/index.html" class="button">Keluar</a>
+            <a href ="/activity" class="button">Keluar</a>
         </div>
     </body>
+    <script src="/assets/js/driver.js"></script>
+    <script src="/assets/js/view.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/domain.js"></script>
+    <script src="/assets/js/usecase.js"></script>
+    <script src="/assets/js/security.js"></script>
+    <script>
+        CookieChecker(window.location.pathname);
+        SetUsernameToP("username");
+    </script>
 </html> 

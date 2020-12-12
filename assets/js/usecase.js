@@ -48,6 +48,17 @@ async function SetUserImage() {
         let imageURL = await UploadImage("inputPost");
         if(imageURL.data) {
             await UpdateUserField(user.username, "profileImg", imageURL.data.thumb.url);
+            ToLocation("/activity");
         }
+    }
+}
+/**
+ * set paragraph content to username
+ * @param {string} id of paragraph element which want to be setted
+ */
+function SetUsernameToP(id){
+    let user = GetCookies().userInfo;
+    if(user.username) {
+        SetParagraphText(id, user.username);
     }
 }
