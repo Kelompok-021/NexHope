@@ -8,8 +8,32 @@ function ToLocation(location) {
     }
 }
 
+function cookieToJSON() {
+    let cookies = document.cookie.split(";");
+    let result = {};
+    for (let i = 0; i < cookies.length; i++) {
+        let kvCookies = cookies[i].split("=");
+        if(kvCookies.length == 2) {
+            result[kvCookies[0].trim()] = kvCookies[1].trim();
+        }
+    }
+    return result;
+}
+
+function jsonToCookie(data) {
+    let keys = Object.keys(data);
+    let cookie = "";
+    keys.forEach((key) => {
+        cookie += `${key}=${data[key]}; `;
+    })
+    console.log(cookie);
+    document.cookie = cookie;
+}
+
 function setCookie(data) {
-    document.cookie = JSON.stringify(data);
+    let cookie = cookieToJSON();
+    cookie["nexhope"] = JSON.stringify(data);
+    jsonToCookie(cookie);
 }
 
 /**
@@ -30,7 +54,7 @@ function UpdateCookies(key, cookie) {
 function GetCookies() {
     let parsed;
     try {
-        parsed = JSON.parse(document.cookie);
+        parsed = JSON.parse(cookieToJSON().nexhope);
     } catch(error) {
         parsed = {}
     }
