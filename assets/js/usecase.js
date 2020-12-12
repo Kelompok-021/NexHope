@@ -73,3 +73,20 @@ async function PutCategories() {
         AppendCategoryOption(cat.id, cat.name);
     })
 }
+
+/**
+ *  Post new picture and title to specified category
+ */
+async function CreatePost() {
+    let user = GetCookies().userInfo;
+    let title = GetTextFromInput("titlePost");
+    let category = GetTextFromInput("category");
+    if(category.length > 8) {
+        let postImageURL = await UploadImage("inputPost");
+        let err = await InsertPost(category, user.id, title, postImageURL.data.display_url);
+        if(!!err) {
+            return SetParagraphText("response", "thank you for post something");
+        }
+    }
+    SetParagraphText("response", "(title, category, file image) something error")
+}

@@ -4,7 +4,10 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			<link rel="stylesheet" href ="/assets/css/style.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-			<!-- CSS only -->
+			<script src="/assets/js/firebase-app.js"></script>
+			<script src="/assets/js/firebase-firestore.js"></script>
+			<script src="/assets/js/firebase-analytic.js"></script>
+			<script src="/assets/js/firebase.js"></script>
 	</head>
 	<body>
 	<style>
@@ -51,21 +54,16 @@
 			<div class="main">
 				<div class="garistepi">
 					
-					<input type="text"  placeholder="Judul Postingan">
+					<input type="text"  placeholder="Judul Postingan" id="titlePost">
 					<br/>
-					<input type="submit" value="Pilih Postingan">
+					<input type="file" value="Pilih Postingan" id="inputPost" accept="image/*" onchange="PutImageSrc('previewImg', 'inputPost');">
 					<br/>
-						<select name="agama">
-							<option >Pilih Genre</option>
-							<option value="Art">Art</option>
-							<option value="Meme">Meme</option>
-							<option value="Manga & Anime">Manga & Anime</option>
-							<option value="Picture">Picture</option>
-						</select>
+						<select name="category" id="category" title="Pilih Kategory"></select>
 						<div class="pos">
-							<img src="#" alt="gambar.jpg" width="200px" height="150px">
+							<img src="#" alt="gambar.jpg" width="200px" height="150px" id="previewImg">
 						</div>
-							<input type="submit" value="posting">
+						<p style="color: white;" id="response"></p>
+							<input type="button" value="posting" onclick="CreatePost()">
 						
 				</div>
 			</div>
@@ -75,11 +73,15 @@
 				</div>
 			</div>
 		</div>
-	   <!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="/assets/js/driver.js"></script>
+    <script src="/assets/js/view.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/domain.js"></script>
+    <script src="/assets/js/usecase.js"></script>
+    <script src="/assets/js/security.js"></script>
 	<script>
+		CookieChecker(window.location.pathname);
+		PutCategories();
 		function openNav() {
 		  document.getElementById("msn").style.width = "200px";
 		  document.getElementById("content").style.marginLeft = "300px";
