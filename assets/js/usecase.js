@@ -92,6 +92,25 @@ async function CreatePost() {
     SetParagraphText("response", "(title, category, file image) something error")
 }
 
+
+let voteCountCache = {};
+/**
+ * function that perform repeating vote count display
+ */
+function CronSetVoteCount() {
+    setInterval(() => {
+        let keys = Object.keys(voteCountCache);
+        keys.forEach((key) => {
+            let postKeys = Object.keys(voteCountCache[key]);
+            let result = 0
+            postKeys.forEach(postKey => {
+                result += voteCountCache[key][postKey] ? 1 : -1;
+            });
+            SetParagraphText(`vote-${key}`, `${result}`);
+        });
+    }, 2500);
+}
+
 /**
  * render all post to html
  */
@@ -118,7 +137,15 @@ async function RenderAllPost() {
             }
             AddOtherComment(post.id, user.username, doc.comment, userComment.profileImg);
         });
+
+        await ListenForVotes(category, post.id, async (type, voteData)=>{
+            if(!voteCountCache[post.id]){
+                voteCountCache[post.id] = {};
+            }
+            voteCountCache[post.id][voteData.id] = voteData.isUpvote;
+        })
     }
+    CronSetVoteCount();
 }
 
 /**
