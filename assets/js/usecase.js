@@ -144,3 +144,18 @@ async function Comments(categoryID, postID) {
 function LogOut() {
     UpdateCookies("userInfo", {});
 }
+
+/**
+ * 
+ * @param {string} id of room category
+ * @param {string} postID of specified post
+ */
+async function Upvote(id, postID) {
+    let user = GetCookies().userInfo;
+    await Vote(id, postID, user.username, true);
+}
+
+async function Downvote(id, postID) {
+    let user = GetCookies().userInfo;
+    await Vote(id, postID, user.username, false);
+}

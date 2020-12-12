@@ -161,3 +161,25 @@ async function ListenFromComment(id, postID, callback) {
         return error;
     }
 }
+
+/**
+ * vote the post up, or down
+ * @param {string} id of category
+ * @param {string} postID 
+ * @param {string} username 
+ * @param {boolean} isUpvote 
+ */
+async function Vote(id, postID, username, isUpvote) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("votes").
+            doc(username).
+            set({ isUpvote });
+        return null;
+    } catch (error) {
+        return error;
+    }
+}
