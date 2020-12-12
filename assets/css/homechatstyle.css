@@ -334,9 +334,9 @@ button a:hover {
 
 .box {
     position: fixed;
-    top: 50%;
+    top: 25%;
     right: 25%;
-    width: 5px;
+    width: 50px;
     height: 20px;
     border: 1px auto black;
     display: flex;
