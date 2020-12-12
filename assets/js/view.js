@@ -71,3 +71,14 @@ function AppendCategory(name, imageURL){
     }
     getElByID("categories").appendChild(div);
 }
+
+/**
+ * 
+ * @param {string} id of element img which want to be setted
+ * @param {string} sourceID
+ */
+function PutImageSrc(id, sourceID) {
+    let el = getElByID(id);
+    let sourceEl = getElByID(sourceID);
+    el.src = window.URL.createObjectURL(sourceEl.files[0]);
+}
