@@ -135,7 +135,7 @@ async function RenderAllPost() {
             if(doc.username == username) {
                 return AddSelfComment(post.id, user.username, doc.comment, userComment.profileImg);
             }
-            AddOtherComment(post.id, user.username, doc.comment, userComment.profileImg);
+            AddOtherComment(post.id, doc.username, doc.comment, userComment.profileImg);
         });
 
         await ListenForVotes(category, post.id, async (type, voteData)=>{
