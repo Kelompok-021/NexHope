@@ -82,3 +82,20 @@ function PutImageSrc(id, sourceID) {
     let sourceEl = getElByID(sourceID);
     el.src = window.URL.createObjectURL(sourceEl.files[0]);
 }
+
+/**
+ * add option to be choosen
+ * when user want to post picture
+ * @param {string} value of options
+ * @param {string} label of options to be choosen
+ */
+function AppendCategoryOption(value, label) {
+    getElByID("category").appendChild(
+        (function(){
+            let child = document.createElement("option");
+            child.value = value;
+            child.innerText = label
+            return child;
+        })()
+    )
+}

@@ -62,3 +62,14 @@ function SetUsernameToP(id){
         SetParagraphText(id, user.username);
     }
 }
+
+/**
+ * event when user visiting activity
+ * to put all category on list
+ */
+async function PutCategories() {
+    let category = await GetAllCategory();
+    category.forEach((cat)=> {
+        AppendCategoryOption(cat.id, cat.name);
+    })
+}
