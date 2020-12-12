@@ -90,3 +90,23 @@ async function CreatePost() {
     }
     SetParagraphText("response", "(title, category, file image) something error")
 }
+
+/**
+ * render all post to html
+ */
+async function RenderAllPost() {
+    let category = GetCookies().categoryID;
+    let posts = await GetAllPost(category);
+    for (let p = 0; p < posts.length; p++) {
+        const post = posts[p];
+        let user = await GetUserByUsername(post.creatorUsername);
+        AddPost(
+            post.id, {
+                profileimg: user.profileImg,
+                username: user.username
+            },
+            post.imageURL,
+            post.title
+        )
+    }
+}
