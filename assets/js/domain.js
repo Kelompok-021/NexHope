@@ -183,3 +183,27 @@ async function Vote(id, postID, username, isUpvote) {
         return error;
     }
 }
+
+/**
+ * get count of votes
+ * @param {string} id of category
+ * @param {string} postID 
+ * @param {Function} callback
+ */
+async function ListenForVotes(id, postID, callback) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("votes").
+            onSnapshot((snapshot)=>{
+                snapshot.docChanges().forEach(async ({ type, doc: comment })=>{
+                    await callback(type, { ...comment.data(), id: comment.id });
+                });
+            });
+        return null;
+    } catch (error) {
+        return error;
+    }
+}
