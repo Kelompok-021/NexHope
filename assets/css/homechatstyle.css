@@ -333,7 +333,17 @@ button a:hover {
 
 
 .box {
-    width: 500px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 20px;
+    border: 1px auto black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
 }
 
 p {
