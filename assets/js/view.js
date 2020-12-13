@@ -128,11 +128,9 @@ function AddPost(id, categoryID, creator, imageURL, title){
                         <div class="propic">
                             <img style="border-radius: 20% 20% 20% 20%" width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${creator.profileimg}"/>
                         </div>
-                        <div>
-                            <h5>${creator.username}</h5>
-                        </div>
-                        <div class="message">
-                            <h5>${title}</h5>
+                        <div class="message">    
+                            <h6>${creator.username}</h6>
+                            <h4>${title}</h4>
                         </div>
                     </header>
                     <div class="mainpost">
