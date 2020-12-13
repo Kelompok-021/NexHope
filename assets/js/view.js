@@ -126,7 +126,7 @@ function AddPost(id, categoryID, creator, imageURL, title){
                 <div class="post">
                     <header>
                         <div class="propic">
-                            <img width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${creator.profileimg}"/>
+                            <img style="border-radius: 20% 20% 20% 20%" width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${creator.profileimg}"/>
                         </div>
                         <div>
                             <h5>${creator.username}</h5>
@@ -175,7 +175,7 @@ function AddOtherComment(id, username, content, imgURL) {
     let comment = `
     <div class="opcom">
         <div class="propic">
-            <img width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${imgURL}"/>
+            <img style="border-radius: 50% 50% 50% 50%" width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${imgURL}"/>
         </div>
         <div class="thecom">
             <div class="usernm">
