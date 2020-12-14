@@ -187,3 +187,18 @@ async function Downvote(id, postID) {
     let user = GetCookies().userInfo;
     await Vote(id, postID, user.username, false);
 }
+
+/**
+ * function that insert category into database
+ */
+async function CreateGroup() {
+    let user = GetCookies().userInfo;
+    let name = GetTextFromInput("nama-group");
+    if(user.username) {
+        let imageURL = await UploadImage("inputPost");
+        if(imageURL.data) {
+            await InsertGroup(name, imageURL.data.display_url);
+            ToLocation("/activity");
+        }
+    }
+}
