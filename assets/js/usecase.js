@@ -117,9 +117,7 @@ function CronSetVoteCount() {
 async function RenderAllPost() {
     let { username } = GetCookies().userInfo;
     let category = GetCookies().categoryID;
-    let posts = await GetAllPost(category);
-    for (let p = 0; p < posts.length; p++) {
-        const post = posts[p];
+    await GetAllPost(category, async function(post) {
         let user = await GetUserByUsername(post.creatorUsername);
         AddPost(
             post.id, 
@@ -138,13 +136,13 @@ async function RenderAllPost() {
             AddOtherComment(post.id, doc.username, doc.comment, userComment.profileImg);
         });
 
-        await ListenForVotes(category, post.id, async (type, voteData)=>{
+        await ListenForVotes(category, post.id, async (_, voteData)=>{
             if(!voteCountCache[post.id]){
                 voteCountCache[post.id] = {};
             }
             voteCountCache[post.id][voteData.id] = voteData.isUpvote;
         })
-    }
+    });
     CronSetVoteCount();
 }
 

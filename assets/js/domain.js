@@ -92,23 +92,24 @@ async function InsertPost(id, creatorUsername, title, imageURL) {
 /**
  * fetch all post from db
  * @param {string} id of category want to be fetched
- * @returns {Array.<Object>}
+ * @param {Function} callback for every post
  */
-async function GetAllPost(id) {
-    let result = [];
+async function GetAllPost(id, callback) {
     try {
-        let {docs: post} = await postRef.
+        await postRef.
             doc(id).
-            collection("post").get();
-        post.forEach((row)=>{
-
-            result.push({
-                ...row.data(),
-                id: row.id
+            collection("post").
+            onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(({ type, doc: comment })=>{
+                    if(type === "added") {
+                        callback({
+                            id: comment.id,
+                            ...comment.data()
+                        });
+                    }
+                });
             });
-        })
     } catch (error) {}
-    return result;
 }
 
 /**
