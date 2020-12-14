@@ -33,10 +33,9 @@ async function SSO() {
  * to put all category on list
  */
 async function AppendCategories() {
-    let category = await GetAllCategory();
-    category.forEach((cat)=> {
+    await GetAllCategory((cat) => {
         AppendCategory(cat.id, cat.name, cat.imageURL);
-    })
+    });
 }
 
 /**
@@ -68,10 +67,9 @@ function SetUsernameToP(id){
  * to put all category on list
  */
 async function PutCategories() {
-    let category = await GetAllCategory();
-    category.forEach((cat)=> {
-        AppendCategoryOption(cat.id, cat.name);
-    })
+    await GetAllCategory((cat) => {
+        AppendCategoryOption(cat.id, cat.name)
+    });y
 }
 
 /**

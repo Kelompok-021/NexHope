@@ -54,19 +54,23 @@ async function UpdateUserField(username, key, value) {
 /**
  * get all category from collection
  * return zero length array if not found
+ * @param {Function} callback to serve what you want to do from data
  * @returns {Array}
  */
-async function GetAllCategory() {
-    let result = [];
+async function GetAllCategory(callback) {
     try {
-        let { docs: categories } = await categoryRef.get();
-        for (let c = 0; c < categories.length; c++) {
-            let data = categories[c].data();
-            data.id = categories[c].id;
-            result.push(data);
-        }
+        await categoryRef.
+            onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(({ type, doc: comment })=>{
+                    if(type === "added") {
+                        callback({
+                            id: comment.id,
+                            ...comment.data()
+                        });
+                    }
+                });
+            });
     } catch(error) {}
-    return result;
 }
 
 /**
