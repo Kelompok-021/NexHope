@@ -212,3 +212,16 @@ async function ListenForVotes(id, postID, callback) {
         return error;
     }
 }
+
+/**
+ * add group to database
+ * @param {string} name`
+ * @param {string} imageURL 
+ */
+async function InsertGroup(name, imageURL) {
+    try {
+        await categoryRef.add({
+            name, imageURL
+        })
+    } catch (error) {}
+}

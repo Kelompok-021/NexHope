@@ -100,13 +100,19 @@ function CronSetVoteCount() {
         let keys = Object.keys(voteCountCache);
         keys.forEach((key) => {
             let postKeys = Object.keys(voteCountCache[key]);
-            let result = 0
+            let likes = 0;
+            let dislikes = 0;
             postKeys.forEach(postKey => {
-                result += voteCountCache[key][postKey] ? 1 : -1;
+                if(voteCountCache[key][postKey]) {
+                    likes++;
+                } else {
+                    dislikes++;
+                }
             });
-            SetParagraphText(`vote-${key}`, `${result}`);
+            SetParagraphText(`likes-${key}`, `${likes}`);
+            SetParagraphText(`dislikes-${key}`, `${dislikes}`);
         });
-    }, 2500);
+    }, 2000);
 }
 
 /**
@@ -186,4 +192,19 @@ async function Upvote(id, postID) {
 async function Downvote(id, postID) {
     let user = GetCookies().userInfo;
     await Vote(id, postID, user.username, false);
+}
+
+/**
+ * function that insert category into database
+ */
+async function CreateGroup() {
+    let user = GetCookies().userInfo;
+    let name = GetTextFromInput("nama-group");
+    if(user.username) {
+        let imageURL = await UploadImage("inputPost");
+        if(imageURL.data) {
+            await InsertGroup(name, imageURL.data.display_url);
+            ToLocation("/activity");
+        }
+    }
 }
