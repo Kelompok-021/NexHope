@@ -208,7 +208,7 @@ function AddSelfComment(id, username, content, imgURL) {
             </div>
         </div>
         <div class="propic">
-            <img width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${imgURL}"/>
+            <img style="border-radius: 50% 50% 50% 50%" width="40px" height="40px" viewBox="0 0 16 16" class="bi bi-person" src="${imgURL}"/>
         </div>
     </div>`
     getElByID(`display-${id}`).innerHTML += comment;
