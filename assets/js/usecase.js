@@ -169,7 +169,7 @@ function LogOut() {
 }
 
 /**
- * 
+ * upvote specified post
  * @param {string} id of room category
  * @param {string} postID of specified post
  */
@@ -178,6 +178,11 @@ async function Upvote(id, postID) {
     await Vote(id, postID, user.username, true);
 }
 
+/**
+ * down specified post
+ * @param {string} id of room category
+ * @param {string} postID of specified post
+ */
 async function Downvote(id, postID) {
     let user = GetCookies().userInfo;
     await Vote(id, postID, user.username, false);
