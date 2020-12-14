@@ -100,13 +100,19 @@ function CronSetVoteCount() {
         let keys = Object.keys(voteCountCache);
         keys.forEach((key) => {
             let postKeys = Object.keys(voteCountCache[key]);
-            let result = 0
+            let likes = 0;
+            let dislikes = 0;
             postKeys.forEach(postKey => {
-                result += voteCountCache[key][postKey] ? 1 : -1;
+                if(voteCountCache[key][postKey]) {
+                    likes++;
+                } else {
+                    dislikes++;
+                }
             });
-            SetParagraphText(`vote-${key}`, `${result}`);
+            SetParagraphText(`likes-${key}`, `${likes}`);
+            SetParagraphText(`dislikes-${key}`, `${dislikes}`);
         });
-    }, 2500);
+    }, 2000);
 }
 
 /**
