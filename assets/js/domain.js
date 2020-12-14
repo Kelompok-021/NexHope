@@ -54,19 +54,23 @@ async function UpdateUserField(username, key, value) {
 /**
  * get all category from collection
  * return zero length array if not found
+ * @param {Function} callback to serve what you want to do from data
  * @returns {Array}
  */
-async function GetAllCategory() {
-    let result = [];
+async function GetAllCategory(callback) {
     try {
-        let { docs: categories } = await categoryRef.get();
-        for (let c = 0; c < categories.length; c++) {
-            let data = categories[c].data();
-            data.id = categories[c].id;
-            result.push(data);
-        }
+        await categoryRef.
+            onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(({ type, doc: comment })=>{
+                    if(type === "added") {
+                        callback({
+                            id: comment.id,
+                            ...comment.data()
+                        });
+                    }
+                });
+            });
     } catch(error) {}
-    return result;
 }
 
 /**
@@ -92,21 +96,132 @@ async function InsertPost(id, creatorUsername, title, imageURL) {
 /**
  * fetch all post from db
  * @param {string} id of category want to be fetched
+ * @param {Function} callback for every post
+ */
+async function GetAllPost(id, callback) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(({ type, doc: comment })=>{
+                    if(type === "added") {
+                        callback({
+                            id: comment.id,
+                            ...comment.data()
+                        });
+                    }
+                });
+            });
+    } catch (error) {}
+}
+
+/**
+ * add comment from specified post
+ * @param {string} id of category want to be fetched    
+ * @param {string} postID
+ * @param {string} username of user who's comment
+ * @param {string} comment
  * @returns {Array.<Object>}
  */
-async function GetAllPost(id) {
-    let result = [];
+async function AddComment(id, postID, username, comment) {
     try {
-        let {docs: post} = await postRef.
+        await postRef.
             doc(id).
-            collection("post").get();
-        post.forEach((row)=>{
-
-            result.push({
-                ...row.data(),
-                id: row.id
+            collection("post").
+            doc(postID).
+            collection("comments").
+            add({
+                username, comment,
+                created: firebase.firestore.FieldValue.serverTimestamp()
             });
+            return null;
+    } catch (error) {
+        return error;
+    }
+}
+
+/**
+ * listen every new comment
+ * @param {string} id 
+ * @param {string} postID 
+ * @param {Function} callback 
+ */
+async function ListenFromComment(id, postID, callback) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("comments").
+            onSnapshot(function(snapshot) {
+                snapshot.docChanges().forEach(({ type, doc: comment })=>{
+                    if(type === "added") {
+                        callback(comment.data());
+                    }
+                });
+            });
+            return null;
+    } catch (error) {
+        return error;
+    }
+}
+
+/**
+ * vote the post up, or down
+ * @param {string} id of category
+ * @param {string} postID 
+ * @param {string} username 
+ * @param {boolean} isUpvote 
+ */
+async function Vote(id, postID, username, isUpvote) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("votes").
+            doc(username).
+            set({ isUpvote });
+        return null;
+    } catch (error) {
+        return error;
+    }
+}
+
+/**
+ * get count of votes
+ * @param {string} id of category
+ * @param {string} postID 
+ * @param {Function} callback
+ */
+async function ListenForVotes(id, postID, callback) {
+    try {
+        await postRef.
+            doc(id).
+            collection("post").
+            doc(postID).
+            collection("votes").
+            onSnapshot((snapshot)=>{
+                snapshot.docChanges().forEach(async ({ type, doc: comment })=>{
+                    await callback(type, { ...comment.data(), id: comment.id });
+                });
+            });
+        return null;
+    } catch (error) {
+        return error;
+    }
+}
+
+/**
+ * add group to database
+ * @param {string} name`
+ * @param {string} imageURL 
+ */
+async function InsertGroup(name, imageURL) {
+    try {
+        await categoryRef.add({
+            name, imageURL
         })
     } catch (error) {}
-    return result;
 }

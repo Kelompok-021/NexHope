@@ -33,10 +33,9 @@ async function SSO() {
  * to put all category on list
  */
 async function AppendCategories() {
-    let category = await GetAllCategory();
-    category.forEach((cat)=> {
+    await GetAllCategory((cat) => {
         AppendCategory(cat.id, cat.name, cat.imageURL);
-    })
+    });
 }
 
 /**
@@ -68,10 +67,9 @@ function SetUsernameToP(id){
  * to put all category on list
  */
 async function PutCategories() {
-    let category = await GetAllCategory();
-    category.forEach((cat)=> {
-        AppendCategoryOption(cat.id, cat.name);
-    })
+    await GetAllCategory((cat) => {
+        AppendCategoryOption(cat.id, cat.name)
+    });y
 }
 
 /**
@@ -84,29 +82,129 @@ async function CreatePost() {
     if(category.length > 8) {
         let postImageURL = await UploadImage("inputPost");
         let err = await InsertPost(category, user.username, title, postImageURL.data.display_url);
-        if(!!err) {
+        if(!err) {
+            ToLocation("/activity")
             return SetParagraphText("response", "thank you for post something");
         }
     }
     SetParagraphText("response", "(title, category, file image) something error")
 }
 
+
+let voteCountCache = {};
+/**
+ * function that perform repeating vote count display
+ */
+function CronSetVoteCount() {
+    setInterval(() => {
+        let keys = Object.keys(voteCountCache);
+        keys.forEach((key) => {
+            let postKeys = Object.keys(voteCountCache[key]);
+            let likes = 0;
+            let dislikes = 0;
+            postKeys.forEach(postKey => {
+                if(voteCountCache[key][postKey]) {
+                    likes++;
+                } else {
+                    dislikes++;
+                }
+            });
+            SetParagraphText(`likes-${key}`, `${likes}`);
+            SetParagraphText(`dislikes-${key}`, `${dislikes}`);
+        });
+    }, 2000);
+}
+
 /**
  * render all post to html
  */
 async function RenderAllPost() {
+    let { username } = GetCookies().userInfo;
     let category = GetCookies().categoryID;
-    let posts = await GetAllPost(category);
-    for (let p = 0; p < posts.length; p++) {
-        const post = posts[p];
+    await GetAllPost(category, async function(post) {
         let user = await GetUserByUsername(post.creatorUsername);
         AddPost(
-            post.id, {
+            post.id, 
+            category, {
                 profileimg: user.profileImg,
                 username: user.username
             },
             post.imageURL,
             post.title
         )
+        await ListenFromComment(category, post.id, async function (doc) {
+            let userComment = await GetUserByUsername(doc.username);
+            if(doc.username == username) {
+                return AddSelfComment(post.id, doc.username, doc.comment, userComment.profileImg);
+            }
+            AddOtherComment(post.id, doc.username, doc.comment, userComment.profileImg);
+        });
+
+        await ListenForVotes(category, post.id, async (_, voteData)=>{
+            if(!voteCountCache[post.id]){
+                voteCountCache[post.id] = {};
+            }
+            voteCountCache[post.id][voteData.id] = voteData.isUpvote;
+        })
+    });
+    CronSetVoteCount();
+}
+
+/**
+ * function that add comment to specified post
+ * @param {string} categoryID
+ * @param {string} postID
+ */
+async function Comments(categoryID, postID) {
+    let user = GetCookies().userInfo;
+    let input = GetTextFromInput(`comment-${postID}`);
+    if(input.length > 0) {
+        let err = await AddComment(categoryID, postID, user.username, input);
+        if(!!err) {
+            alert("error message: "+err);
+        }
+    }
+    SetTextInInput(`comment-${postID}`, "");
+}
+
+/**
+ * logout functions
+ */
+function LogOut() {
+    UpdateCookies("userInfo", {});
+}
+
+/**
+ * upvote specified post
+ * @param {string} id of room category
+ * @param {string} postID of specified post
+ */
+async function Upvote(id, postID) {
+    let user = GetCookies().userInfo;
+    await Vote(id, postID, user.username, true);
+}
+
+/**
+ * down specified post
+ * @param {string} id of room category
+ * @param {string} postID of specified post
+ */
+async function Downvote(id, postID) {
+    let user = GetCookies().userInfo;
+    await Vote(id, postID, user.username, false);
+}
+
+/**
+ * function that insert category into database
+ */
+async function CreateGroup() {
+    let user = GetCookies().userInfo;
+    let name = GetTextFromInput("nama-group");
+    if(user.username) {
+        let imageURL = await UploadImage("inputPost");
+        if(imageURL.data) {
+            await InsertGroup(name, imageURL.data.display_url);
+            ToLocation("/activity");
+        }
     }
 }

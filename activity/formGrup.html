@@ -4,7 +4,11 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 			<link rel="stylesheet" href ="/assets/css/style.css">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-			<!-- CSS only -->
+			<script src="/assets/js/firebase-app.js"></script>
+			<script src="/assets/js/firebase-firestore.js"></script>
+			<script src="/assets/js/firebase-analytic.js"></script>
+			<script src="/assets/js/firebase.js"></script>
+			<script src="/assets/js/cookie.js"></script>
 	</head>
 <body>
     <div class="Wrap">
@@ -33,7 +37,7 @@
                         Form Grup</a></li>
             </ul>
             <div class="Logout">
-                <a href="/">
+                <a onclick="LogOut()" href="#">
                     <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-door-open" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
                         <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
@@ -47,23 +51,13 @@
 			<div class="main">
 				<div class="garistepi1">
 					<div class="posisi">
-                        <img src="#" alt="gambar.jpg" width="150px" height="150px">
-                        <input type="submit" value="Pilih Foto Grup         " >
+                        <img src="#" width="150px" height="150px" id="previewImg">
+                        <input type="file" value="Pilih Foto Grup" id="inputPost" onchange="PutImageSrc('previewImg', 'inputPost');">
                     </div>
                     <br/> <br>
-					<input type="text"  placeholder="Nama Grup">
-					
-					
+					<input type="text"  placeholder="Nama Grup" id="nama-group">
 					<br/>
-						<select name= "Genre" >
-							<option value="Art">Art</option>
-							<option value="Meme">Meme</option>
-							<option value="Manga & Anime">Manga & Anime</option>
-							<option value="Picture">Picture</option>
-						</select>
-						
-							<input type="submit" value="Buat Grup">
-						
+					<input type="button" value="Buat Grup" onclick="CreateGroup()">
 				</div>
 			</div>
 			
@@ -72,11 +66,16 @@
 				</div>
 			</div>
 		</div>
-	   <!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+	<script src="/assets/js/driver.js"></script>
+    <script src="/assets/js/view.js"></script>
+    <script src="/assets/js/api.js"></script>
+    <script src="/assets/js/domain.js"></script>
+    <script src="/assets/js/usecase.js"></script>
+	<script src="/assets/js/security.js"></script>
+
 	<script>
+		CookieChecker(window.location.pathname);
 		function openNav() {
 		  document.getElementById("msn").style.width = "200px";
 		  document.getElementById("content").style.marginLeft = "300px";

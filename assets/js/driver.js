@@ -9,7 +9,7 @@ function ToLocation(location) {
 }
 
 function setCookie(data) {
-    document.cookie = JSON.stringify(data);
+    Cookies.set("nexhope", JSON.stringify(data));
 }
 
 /**
@@ -30,7 +30,7 @@ function UpdateCookies(key, cookie) {
 function GetCookies() {
     let parsed;
     try {
-        parsed = JSON.parse(document.cookie);
+        parsed = JSON.parse(Cookies.get("nexhope"));
     } catch(error) {
         parsed = {}
     }
