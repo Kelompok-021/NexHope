@@ -51,7 +51,14 @@ ul {
     border-radius: 10px;
     border: 1px solid #080606;
 }
-
+.main .container .garis{
+    width: 150px;
+    height: 35px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid #080606;
+}
 .main .button {
     background-color: #4CAF50;
     /* Green */
